@@ -1,4 +1,4 @@
-FROM php:7.4.7
+FROM php:7.4
 
 #===============================================================================
 # Adds `automation` user
@@ -44,13 +44,13 @@ RUN apt-get install -y \
     && docker-php-ext-enable imagick
 
 #===============================================================================
-# Install Node 12.x (LTS)
+# Install Node 14.x (LTS)
 # -----------------------
-# Node 12.x is the current LTS version so we'll install that
+# Node 14.x is the current LTS version so we'll install that
 #===============================================================================    
 
 RUN apt-get install gnupg2 -yqq \
-    && curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && apt-get install gcc g++ make -yqq \
     && apt-get install -y nodejs -yqq \
     && curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
